@@ -59,7 +59,8 @@ export default function App() {
                 cursor: "pointer",
                 margin: "1% 3%",
                 borderRadius: "2px",
-                padding: "4px"
+                padding: "4px",
+                background: "#C8A2C8"
               }}
             >
               {b}
@@ -67,8 +68,8 @@ export default function App() {
           ))}
         </div>
         <hr></hr>
-        <div>
-          <ul>
+        <div style={{ textAlign: "left" }}>
+          <ul style={{ textAlign: "-webkit-center" }}>
             {data[book].map((e, k) => (
               <li
                 key={k}
@@ -78,7 +79,7 @@ export default function App() {
                   border: "1px dashed #C8A2C8",
                   borderRadius: "2%",
                   margin: "1rem 0rem",
-                  textAlign: "left"
+                  width: "70%"
                 }}
               >
                 <div style={{ fontSize: "larger" }}>{e.name}</div>
