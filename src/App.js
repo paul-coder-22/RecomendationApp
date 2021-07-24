@@ -1,75 +1,93 @@
+import { useState } from "react";
 import "./styles.css";
 
-let bookList = ["javaScript", "fiction", "budiness"];
-let valueArr = [
-  {
-    title: "javaScript",
-    content: [
-      {
-        name: "Eloquent",
-        rating: "5/5"
-      },
-      {
-        name: "You Don't Know JS",
-        rating: "3.5/5"
-      }
-    ]
-  },
-  {
-    title: "fiction",
-    content: [
-      {
-        name: "Eloquent",
-        rating: "5/5"
-      },
-      {
-        name: "You Don't Know JS",
-        rating: "3.5/5"
-      }
-    ]
-  },
-  {
-    title: "budiness",
-    content: [
-      {
-        name: "Eloquent",
-        rating: "5/5"
-      },
-      {
-        name: "You Don't Know JS",
-        rating: "3.5/5"
-      }
-    ]
-  }
-];
-export default function App() {
-  function getDetails(event) {
-    console.log(event.target.id);
-  }
-  let styles = {
-    customButton: {
-      margin: "20px"
+let data = {
+  sprinter: [
+    {
+      name: "Usain Bolt",
+      achievement: "8 Olympic golds and 11 World Championship golds"
+    },
+    {
+      name: "Carl Lewis",
+      achievement: " 6 Olympic golds and 6 World Championship golds"
     }
-  };
-  return (
-    <div className="App">
-      <h2>
-        <span>📚</span> goodbooks
-      </h2>
-      <p>Check out my favorite books </p>
+  ],
+  swimmer: [
+    {
+      name: "Michael Phelps",
+      achievement: "50 gold 7 silver and 2 bronze spanning the Olympics"
+    },
+    {
+      name: "Mark Spitz",
+      achievement: "9 Olympic golds and  1 silver and 1 bronze"
+    }
+  ],
+  shuttler: [
+    {
+      name: "Lin Dan",
+      achievement: "2 Olympic and 5 world championship"
+    },
+    {
+      name: "Lee Chong Wei",
+      achievement: "2 Olympics Silver "
+    }
+  ]
+};
+export default function App() {
+  const [book, bookName] = useState("sprinter");
 
-      <div>
-        {bookList.map((e, k) => (
-          <button
-            key={k}
-            id={k}
-            style={styles.customButton}
-            onClick={getDetails}
-          >
-            {e}
-          </button>
-        ))}
+  function bookDeatils(b) {
+    bookName(b);
+  }
+
+  return (
+    <>
+      <div className="App" style={{ textAlign: "center" }}>
+        <div style={{ textAlign: "center" }}>
+          <h2>
+            <span>📚</span> Olympics
+          </h2>
+          <p>Check out your favorite athlete History records </p>
+        </div>
+        <div style={{ textAlign: "center" }}>
+          {Object.keys(data).map((b) => (
+            <button
+              onClick={() => bookDeatils(b)}
+              key={b}
+              style={{
+                border: "1px solid #C8A2C8",
+                cursor: "pointer",
+                margin: "1% 3%",
+                borderRadius: "2px",
+                padding: "4px"
+              }}
+            >
+              {b}
+            </button>
+          ))}
+        </div>
+        <hr></hr>
+        <div>
+          <ul>
+            {data[book].map((e, k) => (
+              <li
+                key={k}
+                style={{
+                  listStyle: "none",
+                  padding: "1rem",
+                  border: "1px dashed #C8A2C8",
+                  borderRadius: "2%",
+                  margin: "1rem 0rem",
+                  textAlign: "left"
+                }}
+              >
+                <div style={{ fontSize: "larger" }}>{e.name}</div>
+                <div style={{ fontSize: "small" }}>{e.achievement}</div>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

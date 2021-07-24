@@ -5,3 +5,15 @@
 body {
   color: #f3f0f6;
 }
+
+hr {
+  width: 5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  transition: 1s ease-in-out;
+}
+
+hr:hover {
+  width: 10rem;
+}
