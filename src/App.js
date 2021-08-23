@@ -5,7 +5,7 @@ let data = {
   sprinter: [
     {
       name: "Usain Bolt",
-      achievement: "8 Olympic golds and 11 World Championship golds"
+      achievement: "8 Olympic golds and 11 World  Championship golds"
     },
     {
       name: "Carl Lewis",
@@ -34,6 +34,28 @@ let data = {
   ]
 };
 export default function App() {
+  const textStyle = {
+    color: "black",
+    textAlign: "center",
+    fontSize: "1.2rem",
+    fontWeight: "bolder"
+  };
+  const buttonStyle = {
+    border: "1px solid #C8A2C8",
+    padding: "0.5rem 0.3rem",
+    cursor: "pointer",
+    margin: "2%",
+    borderRadius: "1rem",
+    background: "#C8A2C8"
+  };
+  const listElement = {
+    listStyle: "none",
+    padding: "1rem",
+    border: "1px dashed #C8A2C8",
+    borderRadius: "2%",
+    margin: "1rem 0rem",
+    width: "70%"
+  };
   const [book, bookName] = useState("sprinter");
 
   function bookDeatils(b) {
@@ -42,51 +64,28 @@ export default function App() {
 
   return (
     <>
-      <div className="App" style={{ textAlign: "center" }}>
-        <div style={{ textAlign: "center" }}>
-          <h2>
-            <span>📚</span> Olympics
-          </h2>
+      <div className="App" style={textStyle}>
+        <div>
+          <h2>🎊 Olympics🎊</h2>
           <p>Check out your favorite athlete History records </p>
         </div>
-        <div style={{ textAlign: "center" }}>
-          {Object.keys(data).map((b) => (
-            <button
-              onClick={() => bookDeatils(b)}
-              key={b}
-              style={{
-                border: "1px solid #C8A2C8",
-                cursor: "pointer",
-                margin: "1% 3%",
-                borderRadius: "2px",
-                padding: "4px",
-                background: "#C8A2C8"
-              }}
-            >
-              {b}
-            </button>
-          ))}
-        </div>
-        <hr></hr>
+
         <div style={{ textAlign: "left" }}>
           <ul style={{ textAlign: "-webkit-center" }}>
             {data[book].map((e, k) => (
-              <li
-                key={k}
-                style={{
-                  listStyle: "none",
-                  padding: "1rem",
-                  border: "1px dashed #C8A2C8",
-                  borderRadius: "2%",
-                  margin: "1rem 0rem",
-                  width: "70%"
-                }}
-              >
+              <li key={k} style={listElement}>
                 <div style={{ fontSize: "larger" }}>{e.name}</div>
                 <div style={{ fontSize: "small" }}>{e.achievement}</div>
               </li>
             ))}
           </ul>
+        </div>
+        <div>
+          {Object.keys(data).map((b) => (
+            <button onClick={() => bookDeatils(b)} key={b} style={buttonStyle}>
+              {b}
+            </button>
+          ))}
         </div>
       </div>
     </>
