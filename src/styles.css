@@ -9,3 +9,11 @@
 body {
   color: #f3f0f6;
 }
+
+.listElements > * {
+  margin: 0rem 1rem;
+  font-weight: 800;
+}
+.listElements > * a {
+  color: black;
+}
