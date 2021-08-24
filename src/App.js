@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ButtonRender from "./buttons";
 import "./styles.css";
 
 let data = {
@@ -9,7 +10,7 @@ let data = {
     },
     {
       name: "Carl Lewis",
-      achievement: " 6 Olympic golds and 6 World Championship golds"
+      achievement: "6 Olympic golds and 6 World Championship golds"
     }
   ],
   swimmer: [
@@ -40,14 +41,14 @@ export default function App() {
     fontSize: "1.2rem",
     fontWeight: "bolder"
   };
-  const buttonStyle = {
+  /*   const buttonStyle = {
     border: "1px solid #C8A2C8",
     padding: "0.5rem 0.3rem",
     cursor: "pointer",
     margin: "2%",
     borderRadius: "1rem",
-    background: "#C8A2C8"
-  };
+    background: "#00BFFF"
+  }; */
   const listElement = {
     listStyle: "none",
     padding: "1rem",
@@ -70,7 +71,7 @@ export default function App() {
           <p>Check out your favorite athlete History records </p>
         </div>
 
-        <div style={{ textAlign: "left" }}>
+        <div>
           <ul style={{ textAlign: "-webkit-center" }}>
             {data[book].map((e, k) => (
               <li key={k} style={listElement}>
@@ -80,13 +81,14 @@ export default function App() {
             ))}
           </ul>
         </div>
-        <div>
-          {Object.keys(data).map((b) => (
+        {/* <div> */}
+        {/* {Object.keys(data).map((b) => (
             <button onClick={() => bookDeatils(b)} key={b} style={buttonStyle}>
               {b}
             </button>
-          ))}
-        </div>
+          ))} */}
+        <ButtonRender dataRender={bookDeatils} listOfValue={data} />
+        {/* </div> */}
       </div>
     </>
   );
